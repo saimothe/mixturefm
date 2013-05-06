@@ -1,0 +1,18 @@
+<a id="<%= dom_id(list_item) %>" class="mix" href="<%= admin_mix_path list_item %>">
+	<div>
+		<h5><%= list_item.title %> <small>( <%= list_item.debuted_at.strftime('%d/%m/%Y') %> )</small></h5>
+	</div>
+	<div>
+		<p class="audio-processing">
+			<% if list_item.processed? %>
+				<span class="label label-success">Processing complete</span>
+			<% else %>
+				<% if list_item.processing? %>
+					<span class="label label-warning">Processing...</span>
+				<% else %>
+					<span class="label label-error">Processing failed or is queued for processing.</span>
+				<% end %>
+			<% end %>
+		</p>
+	</div>
+</a>
